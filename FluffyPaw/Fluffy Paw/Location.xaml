@@ -1,0 +1,178 @@
+﻿<Page
+    x:Class="Fluffy_Paw.Location"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Fluffy_Paw"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:Custom="using:Windows.UI.Xaml.Controls.Maps"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#FFDDF9EB">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Menu bar -->
+        <RelativePanel  Grid.Column="0"
+                        Background="#FFBCF7DA">
+            <Grid Margin="10,20,0,0"
+                  Width="80">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <RelativePanel Grid.Row="0" Margin="0,0,0,10"
+                               HorizontalAlignment="Center"
+                               Padding="15"
+                               CornerRadius="10"
+                               Tapped="Home_Tapped">
+                    <Grid x:Name="Home"
+                          Margin="0,10,0,20">
+                        <Image Source="Assets/Home.png"
+                               Width="50"
+                               Height="50"/>
+                    </Grid>
+                    <TextBlock Text="Home"
+                       FontSize="13"
+                       FontWeight="ExtraLight"
+                       RelativePanel.AlignBottomWith="Home"
+                       RelativePanel.AlignHorizontalCenterWith="Home"
+                       Foreground="Black"/>
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="1" Margin="0,0,0,10"
+                               HorizontalAlignment="Center"
+                               Padding="15"
+                               CornerRadius="10"
+                               Tapped="Adoption_Tapped">
+                    <Grid x:Name="Adoption"
+                          Margin="0,10,0,20">
+                        <Image Source="Assets/Adoption.png"
+                               Width="50"
+                               Height="50"/>
+                    </Grid>
+                    <TextBlock Text="Adoption"
+                       FontSize="13"
+                       FontWeight="ExtraLight"
+                       RelativePanel.AlignBottomWith="Adoption"
+                       Foreground="Black"/>
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="2" Margin="0,0,0,10"
+                               HorizontalAlignment="Center"
+                               Padding="15"
+                               CornerRadius="10"
+                               Background="#FF79F0B6"
+                               Tapped="MnS_Tapped">
+                    <Grid x:Name="Missing"
+                          Margin="0,10,0,20">
+                        <Image Source="Assets/Missing.png"
+                               Width="50"
+                               Height="50"/>
+                    </Grid>
+                    <TextBlock Text="Rescue"
+                       FontSize="13"
+                       FontWeight="ExtraLight"
+                       RelativePanel.AlignBottomWith="Missing"
+                       RelativePanel.AlignHorizontalCenterWith="Missing"
+                       Foreground="Black"
+                       />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="3" Margin="0,0,0,10"
+                               HorizontalAlignment="Center"
+                               Padding="15"
+                               CornerRadius="10"
+                               Tapped="Donation_Tapped">
+                    <Grid x:Name="Donation"
+                          Margin="0,10,0,20">
+                        <Image Source="Assets/Donation.png"
+                               Width="50"
+                               Height="50"/>
+                    </Grid>
+                    <TextBlock Text="Donation"
+                       FontSize="13"
+                       FontWeight="ExtraLight"
+                       RelativePanel.AlignBottomWith="Donation"
+                       RelativePanel.AlignHorizontalCenterWith="Donation"
+                       Foreground="Black"/>
+                </RelativePanel>
+
+            </Grid>
+        </RelativePanel>
+
+
+        <Grid Grid.Column="1"
+                       Margin="10,10,10,10"
+                       CornerRadius="50"
+                        Background="#FFBAD4CE">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Name of the page-->
+            <Grid>
+                <TextBlock 
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="Location"
+                        FontSize="50"
+                        Margin="30,30,0,0"
+                        FontFamily="Quicksand"
+                        Foreground="Black"
+                        FontWeight="SemiBold"
+                        TextWrapping="Wrap"
+                        HorizontalTextAlignment="Left"
+                        VerticalAlignment="Center"/>
+            </Grid>
+
+            <!--Back key-->
+            <Grid
+                Grid.Column="2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Tapped="BackKey_Tapped"
+                Margin="10,10,20,10">
+                <Image Source="Assets/BackKey.png"
+                       Width="50"
+                       Height="50"/>
+            </Grid>
+            
+            <!--Mapping-->
+            <Grid
+                x:Name="MapGrid"
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Grid.ColumnSpan="2"
+                Margin="10"
+                CornerRadius="10"
+                Padding="10">
+                
+                <Custom:MapControl x:Name="TestMap1" 
+                         MapServiceToken="h1bEzT5NsdVcnAumbtFn~g49bqDHwWhLRwq9csN1ePA~Au0p5uboCSquVGnwhrlwTljRlURvNCrf0BG-PZe_uVQKy2k0YXxI-EsgVlzkBjgb"  
+                         ZoomInteractionMode="GestureAndControl" 
+                         TiltInteractionMode="GestureAndControl"
+                         Style="Aerial3DWithRoads"
+                         Loaded="TestMap1_Loaded"
+                         ZoomLevel="30"
+                         DesiredPitch ="90"/>
+
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

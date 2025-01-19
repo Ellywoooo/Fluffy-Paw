@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="b16571e4-6d79-4647-a662-f1937a4edc22"
+    Publisher="CN=wjwj0"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="b16571e4-6d79-4647-a662-f1937a4edc22" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>Fluffy Paw</DisplayName>
+    <PublisherDisplayName>wjwj0</PublisherDisplayName>
+    <Logo>Assets\Logo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="Fluffy_Paw.App">
+      <uap:VisualElements
+        DisplayName="Fluffy Paw"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="Fluffy Paw"
+        BackgroundColor="transparent" Square150x150Logo="Assets\Logo.png">
+        <uap:DefaultTile Square71x71Logo="Assets\Logo.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo"/>
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
